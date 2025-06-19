@@ -26,7 +26,7 @@ website) {
       ></Image>
       <div className="flex flex-col gap-10 w-full justify-center items-center sm:w-1/2">
         <h2 className="text-4xl text-white">{title}</h2>
-        <button className="bg-orange-200 w-3xs h-20 rounded-4xl text-black text-2xl">
+        <button className="bg-orange-200 w-3xs h-20 rounded-4xl text-black text-2xl cursor-pointer">
           Aller
         </button>
       </div>

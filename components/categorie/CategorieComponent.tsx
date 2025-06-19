@@ -19,7 +19,7 @@ export default function CategorieComponent() {
         <Image
           src={child}
           alt="A child"
-          className="w-3xs lg:w-96 aspect-[392/482]"
+          className="w-3xs lg:w-96 aspect-[392/482] object-cover"
         ></Image>
         <h1 className="text-5xl md:text-6xl xl:text-7xl">Education</h1>
       </section>
