@@ -1,19 +1,27 @@
 import api from '@/axios/axios.instance';
+import { UserType } from '@/types/User.type';
 
 const jwtService = async () => {
   try {
-    const res = await api.get('/auth/status');
+    const res = await api.get('/auth/jwt');
     return res.data;
   } catch (error) {
     return { error: `JWT VERIFICATION ERROR: ${error}` };
   }
 };
 
-const loginService = async (data: { email: string; password: string }) => {
+const loginService = async (data: {
+  type: UserType;
+  email: string;
+  password: string;
+  remember: boolean;
+}) => {
   try {
     const res = await api.post('/auth/login', {
+      type: data.type,
       email: data.email,
       password: data.password,
+      remember: data.remember,
     });
     return res.data;
   } catch (error) {
@@ -31,13 +39,17 @@ const googleService = async (token: string) => {
 };
 
 const registerService = async (data: {
+  type: UserType;
   name: string;
+  secteur?: string;
   email: string;
   password: string;
 }) => {
   try {
     const res = await api.post('/auth/register', {
+      type: data.type,
       name: data.name,
+      secteur: data.secteur,
       email: data.email,
       password: data.password,
     });

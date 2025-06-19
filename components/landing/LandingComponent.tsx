@@ -1,7 +1,8 @@
 'use client';
 
-import { ArrowDown } from 'lucide-react';
 import Image from 'next/image';
+import Join from './Join';
+
 import React from 'react';
 import {
   Card,
@@ -73,6 +74,7 @@ export default function LandingComponent() {
           </div>
         </div>
       </div>
+      <Join />
     </div>
   );
 }
