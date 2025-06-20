@@ -7,6 +7,7 @@ import Footer from './Footer';
 
 import { ArrowDown, ChevronRight } from 'lucide-react';
 import { secteur } from '@/lib/secteur';
+import Link from 'next/link';
 
 export default function LandingComponent() {
   return (
@@ -152,10 +153,13 @@ export default function LandingComponent() {
                       {item.label}
                     </h3>
                   </div>
-                  <button className="text-[var(--primary-color)] flex items-center group-hover:text-primary-600 transition-colors hover:underline cursor-pointer">
+                  <Link
+                    href={`/categorie/${item.value}`}
+                    className="text-[var(--primary-color)] flex items-center group-hover:text-primary-600 transition-colors hover:underline cursor-pointer"
+                  >
                     Découvrir
                     <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

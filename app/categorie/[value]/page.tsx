@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Catégorie Page',
 };
 
-export default function CategoriePage() {
+export default function CategorieValuePage() {
   return (
     <div className="w-full">
       <CategorieComponent />

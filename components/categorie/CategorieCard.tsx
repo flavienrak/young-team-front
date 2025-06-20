@@ -3,9 +3,8 @@ import React from 'react';
 interface categorieCard {
   id: string;
   title: string;
-  content: string;
 }
-export default function CategorieCard({ id, title, content }: categorieCard) {
+export default function CategorieCard({ id, title }: categorieCard) {
   return (
     <div className="w-full flex flex-col p-6 bg-white rounded-sm md:w-3xs">
       <div className="flex items-center gap-8">
