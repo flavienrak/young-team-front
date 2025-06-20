@@ -7,6 +7,7 @@ import ThemeProvider from '@/providers/Theme.provider';
 import SocketProvider from '@/providers/Socket.provider';
 import ToastProvider from '@/providers/Toast.provider';
 import UserProvider from '@/providers/User.provider';
+import CursorEffect from '@/components/utils/CursorEffect';
 
 const pacifico = Pacifico({
   weight: '400',
@@ -30,7 +31,10 @@ export default function RootLayout({
           <ThemeProvider>
             <SocketProvider>
               <ToastProvider>
-                <UserProvider>{children}</UserProvider>
+                <UserProvider>
+                  <CursorEffect />
+                  {children}
+                </UserProvider>
               </ToastProvider>
             </SocketProvider>
           </ThemeProvider>

@@ -83,7 +83,7 @@ export default function AuthTokenComponent() {
           password: parseRes.data.password,
         });
 
-        if (res.id) {
+        if (res.user.id) {
           toast.success('Inscription réussie', {
             description: 'Accès à la plateforme',
           });

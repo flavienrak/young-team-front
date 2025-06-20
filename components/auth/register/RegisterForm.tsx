@@ -28,6 +28,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { UserType } from '@/types/User.type';
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
   name: z.string().trim().min(3, 'Nom requis'),
@@ -39,8 +40,9 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function RegisterForm({ type }: { type: UserType }) {
+  const router = useRouter();
+
   const [isLoading, setIsLoading] = React.useState(false);
-  const [showForgot, setShowForgot] = React.useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -66,12 +68,12 @@ export default function RegisterForm({ type }: { type: UserType }) {
         password: parseRes.data.password,
       });
 
-      if (res.user) {
+      if (res.token) {
         toast.success('Inscription réussie!', {
           description: "Validation de l'email en attente",
         });
 
-        window.location.href = '/home';
+        router.push(`/auth/mail/${res.token}`);
       } else if (res.userAlreadyExist) {
         form.setError('email', {
           type: 'manual',
@@ -277,12 +279,6 @@ export default function RegisterForm({ type }: { type: UserType }) {
       >
         Se connecter ?
       </Link>
-
-      {showForgot && (
-        <p className="text-center text-sm text-[var(--u-primary-color)] hover:underline">
-          Mot de passe oublié ?
-        </p>
-      )}
     </div>
   );
 }

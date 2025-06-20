@@ -21,6 +21,7 @@ import { toast } from 'sonner';
 import { loginService } from '@/services/auth.service';
 import { UserType } from '@/types/User.type';
 import { LockKeyhole, Mail } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const loginSchema = z.object({
   email: z.string().trim().min(1, 'Email requis').email('Email invalide'),
@@ -31,6 +32,8 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function LoginForm({ type }: { type: UserType }) {
+  const router = useRouter();
+
   const [isLoading, setIsLoading] = React.useState(false);
   const [showForgot, setShowForgot] = React.useState(false);
 
@@ -68,6 +71,11 @@ export default function LoginForm({ type }: { type: UserType }) {
           message: 'Adresse email inconnu',
         });
         setIsLoading(false);
+      } else if (res.token) {
+        toast.success('Adresse email non vérifié', {
+          description: "Validation de l'email en attente",
+        });
+        router.push(`/auth/mail/${res.token}`);
       } else if (res.incorrectPassword) {
         form.setError('password', {
           type: 'manual',

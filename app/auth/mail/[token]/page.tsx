@@ -1,4 +1,5 @@
 import React from 'react';
+import MailComponent from '@/components/auth/mail/MailComponent';
 
 import type { Metadata } from 'next';
 
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function MailPage() {
-  return <div></div>;
+  return (
+    <div className="w-full">
+      <MailComponent />
+    </div>
+  );
 }

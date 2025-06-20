@@ -4,6 +4,7 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const remotePatterns: { protocol: 'http' | 'https'; hostname: string }[] = [
   { protocol: 'https', hostname: 'images.unsplash.com' },
+  { protocol: 'https', hostname: 'images.pexels.com' },
   { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
 ];
 
