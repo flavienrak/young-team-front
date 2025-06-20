@@ -177,11 +177,13 @@ export default function LandingComponent() {
         </button>
       </div>
 
-      <div className="flex flex-col items-center gap-6 py-3 bg-[var(--primary-color)]">
-        <h1 className="text-4xl text-white">Net Kid</h1>
-        <p className="w-full text-center text-white text-lg">
-          © 2025 NomDuProjet. Tous droits réservés.
-        </p>
+      <div className="flex justify-center">
+        <div className="flex flex-col max-w-7xl w-full items-center gap-6 py-3 bg-[var(--primary-color)]">
+          <h1 className="text-4xl text-white">Net Kid</h1>
+          <p className="w-full text-center text-white text-lg">
+            © 2025 NomDuProjet. Tous droits réservés.
+          </p>
+        </div>
       </div>
     </div>
   );
