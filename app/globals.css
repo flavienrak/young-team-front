@@ -4,10 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --primary-color: #06b6d4;
-  --secondary-color: #1e3a8a;
+  --primary-color: #2da7df;
+  --secondary-color: #e87e25;
+  /* --tertiary-color: #fed90f; */
 
-  --tertiary-color: #22d3ee;
+  /* --tertiary-color: #22d3ee; */
 
   --radius: 0.625rem;
 
@@ -162,7 +163,7 @@
 }
 
 *::selection {
-  background: var(--u-secondary-color);
+  background: var(--secondary-color);
   color: #fff;
 }
 
@@ -177,8 +178,6 @@ body {
 .lightMode {
   --bg-primary: linear-gradient(to right, #fbf2f2 7f5, #faf7f5);
   --bg-purple: #f3e8ff;
-
-  --secondary-color: #fff;
 
   --bg-primary-color: #f3f4f6;
   --bg-secondary-color: #fff;
@@ -200,8 +199,6 @@ body {
 .darkMode {
   --bg-primary: linear-gradient(to right, #1a1e2e, #292e3e);
   --bg-purple: #1a1e2e;
-
-  --secondary-color: #1a1e2e;
 
   --primary-white: #faf7f5;
   --secondary-white: #faf7f5;
