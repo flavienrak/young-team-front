@@ -1,34 +1,35 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-interface Drop {
+interface Bubble {
   id: number;
   x: number;
   y: number;
   color: string;
 }
 
-const CursorRainEffect: React.FC = () => {
-  const [drops, setDrops] = useState<Drop[]>([]);
+const CursorEffect: React.FC = () => {
+  const [bubbles, setBubbles] = React.useState<Bubble[]>([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const id = Date.now() + Math.random();
-      const colors = ['drop-blue', 'drop-pink'];
+
+      const colors = ['bubble-blue', 'bubble-pink'];
       const color = colors[Math.floor(Math.random() * colors.length)];
 
-      const newDrop: Drop = {
+      const newBubble: Bubble = {
         id,
         x: e.clientX,
         y: e.clientY,
         color,
       };
 
-      setDrops((prev) => [...prev, newDrop]);
+      setBubbles((prev) => [...prev, newBubble]);
 
       setTimeout(() => {
-        setDrops((prev) => prev.filter((d) => d.id !== id));
+        setBubbles((prev) => prev.filter((b) => b.id !== id));
       }, 1000);
     };
 
@@ -37,16 +38,16 @@ const CursorRainEffect: React.FC = () => {
   }, []);
 
   return (
-    <div className="cursor-rain-wrapper">
-      {drops.map((drop) => (
+    <div className="cursor-effect-wrapper z-10 fixed pointer-events-none">
+      {bubbles.map((bubble) => (
         <div
-          key={drop.id}
-          className={`drop ${drop.color}`}
-          style={{ left: drop.x, top: drop.y }}
+          key={bubble.id}
+          className={`bubble ${bubble.color}`}
+          style={{ left: bubble.x, top: bubble.y }}
         />
       ))}
     </div>
   );
 };
 
-export default CursorRainEffect;
+export default CursorEffect;
